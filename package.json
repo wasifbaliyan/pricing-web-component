@@ -3,23 +3,39 @@
   "version": "1.0.0",
   "description": "A reusable pricing component that can be embedded in any website",
   "main": "dist/pricing-component.js",
+  "module": "dist/pricing-component.js",
+  "exports": {
+    ".": "./dist/pricing-component.js",
+    "./index.js": "./index.js"
+  },
   "type": "module",
   "files": [
-    "dist/"
+    "dist/",
+    "index.js",
+    "examples/"
   ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "serve": "npx serve"
   },
   "keywords": [
     "web-component",
     "pricing",
-    "custom-element"
+    "custom-element",
+    "pricing-component",
+    "billing-toggle",
+    "web-components"
   ],
-  "author": "",
+  "author": "Wasif B",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wasifbaliyan/pricing-web-component"
+  },
+  "homepage": "https://pricing-web-component.netlify.app",
   "devDependencies": {
     "typescript": "^5.8.3",
     "vite": "^4.5.1"

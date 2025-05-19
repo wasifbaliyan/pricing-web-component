@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Component - NPM Package Example</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+    </style>
+
+    <!-- Import from npm package -->
+    <script type="module">
+      // This is how users would import your package after installing via npm
+      import "pricing-web-component";
+    </script>
+  </head>
+  <body>
+    <h1>Pricing Component - NPM Package Example</h1>
+
+    <h2>Basic Example</h2>
+    <pricing-component></pricing-component>
+
+    <h2>Custom Example</h2>
+    <pricing-component
+      currency="EUR"
+      highlight="enterprise"
+      billing-period="yearly"
+      yearly-discount="25"
+    >
+    </pricing-component>
+
+    <script type="module">
+      // You can also use the JavaScript API
+      const customPricing = document.querySelector(
+        "pricing-component:last-of-type"
+      );
+
+      // Set custom plans if needed
+      /*
+    customPricing.setPlans([
+      {
+        name: "Basic",
+        price: 9.99,
+        period: "month",
+        features: ["Feature 1", "Feature 2", "Feature 3"],
+        cta: "Sign Up",
+        ctaUrl: "#signup"
+      },
+      // Add more plans...
+    ]);
+    */
+    </script>
+  </body>
+</html>
