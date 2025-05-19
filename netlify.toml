@@ -1,0 +1,8 @@
+[build]
+  publish = "public"
+  command = "npm run build && cp dist/pricing-component.js public/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 

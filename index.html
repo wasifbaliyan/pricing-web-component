@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Web Component Demo</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9fafb;
+        color: #1f2937;
+      }
+
+      header {
+        background-color: #ffffff;
+        padding: 2rem 1rem;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      p.lead {
+        font-size: 1.25rem;
+        color: #6b7280;
+        margin: 1rem 0 0;
+      }
+
+      main {
+        padding: 2rem 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .demo-section {
+        margin-bottom: 4rem;
+      }
+
+      .demo-title {
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .code-block {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        overflow-x: auto;
+      }
+
+      code {
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        font-size: 0.9rem;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      label {
+        font-weight: 500;
+      }
+
+      select {
+        padding: 0.5rem;
+        border-radius: 0.375rem;
+        border: 1px solid #e5e7eb;
+        min-width: 150px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: #6b7280;
+        border-top: 1px solid #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pricing Web Component</h1>
+      <p class="lead">
+        A fully customizable, embeddable pricing component for your website
+      </p>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="demo-section">
+          <h2 class="demo-title">Default Configuration</h2>
+          <pricing-component></pricing-component>
+
+          <div class="code-block">
+            <code>&lt;pricing-component&gt;&lt;/pricing-component&gt;</code>
+          </div>
+        </section>
+
+        <section class="demo-section">
+          <h2 class="demo-title">Customized Configuration</h2>
+          <div class="controls">
+            <div class="control-group">
+              <label for="currency-select">Currency</label>
+              <select id="currency-select">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="JPY">JPY (¥)</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="highlight-select">Highlight Plan</label>
+              <select id="highlight-select">
+                <option value="basic">Basic</option>
+                <option value="pro" selected>Pro</option>
+                <option value="enterprise">Enterprise</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="discount-select">Yearly Discount %</label>
+              <select id="discount-select">
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20" selected>20%</option>
+                <option value="25">25%</option>
+                <option value="30">30%</option>
+              </select>
+            </div>
+          </div>
+
+          <pricing-component
+            id="custom-pricing"
+            currency="USD"
+            highlight="pro"
+            billing-period="monthly"
+            yearly-discount="20"
+          ></pricing-component>
+
+          <div class="code-block">
+            <code
+              >&lt;pricing-component currency="USD" highlight="pro"
+              billing-period="monthly" yearly-discount="20"
+              &gt;&lt;/pricing-component&gt;</code
+            >
+          </div>
+        </section>
+
+        <section class="demo-section">
+          <h2 class="demo-title">Using JavaScript API</h2>
+          <pricing-component id="js-pricing"></pricing-component>
+
+          <div class="code-block">
+            <code>
+              const pricingComponent = document.getElementById('js-pricing'); //
+              Set billing period programmatically pricingComponent.billingPeriod
+              = 'yearly'; // Set custom plans pricingComponent.setPlans([ {
+              name: 'Starter', price: 0, period: 'month', features: ['Limited to
+              1 project', '1GB storage', 'Community support'], cta: 'Get
+              started', ctaUrl: '#starter' }, { name: 'Team', price: 29.99,
+              period: 'month', features: ['Unlimited projects', '100GB storage',
+              'Priority support', 'Team collaboration'], cta: 'Start free
+              trial', ctaUrl: '#team' } ]);
+            </code>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>Created with Web Components. Free to use and customize.</p>
+    </footer>
+
+    <script type="module">
+      import "./src/pricing-component.ts";
+
+      // Set up currency select
+      const currencySelect = document.getElementById("currency-select");
+      const highlightSelect = document.getElementById("highlight-select");
+      const discountSelect = document.getElementById("discount-select");
+      const customPricing = document.getElementById("custom-pricing");
+
+      currencySelect.addEventListener("change", (e) => {
+        customPricing.setAttribute("currency", e.target.value);
+      });
+
+      highlightSelect.addEventListener("change", (e) => {
+        customPricing.setAttribute("highlight", e.target.value);
+      });
+
+      discountSelect.addEventListener("change", (e) => {
+        customPricing.setAttribute("yearly-discount", e.target.value);
+      });
+
+      // Set up JS API example
+      const jsPricing = document.getElementById("js-pricing");
+
+      // Set billing period programmatically
+      jsPricing.billingPeriod = "yearly";
+
+      jsPricing.setPlans([
+        {
+          name: "Starter",
+          price: 0,
+          period: "month",
+          features: [
+            "Limited to 1 project",
+            "1GB storage",
+            "Community support",
+          ],
+          cta: "Get started",
+          ctaUrl: "#starter",
+        },
+        {
+          name: "Team",
+          price: 29.99,
+          period: "month",
+          features: [
+            "Unlimited projects",
+            "100GB storage",
+            "Priority support",
+            "Team collaboration",
+          ],
+          cta: "Start free trial",
+          ctaUrl: "#team",
+        },
+      ]);
+    </script>
+  </body>
+</html>

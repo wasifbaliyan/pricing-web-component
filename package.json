@@ -1,0 +1,27 @@
+{
+  "name": "pricing-web-component",
+  "version": "1.0.0",
+  "description": "A reusable pricing component that can be embedded in any website",
+  "main": "dist/pricing-component.js",
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "web-component",
+    "pricing",
+    "custom-element"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^4.5.1"
+  }
+}

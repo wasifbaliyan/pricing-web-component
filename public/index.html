@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Web Component - CDN Demo</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9fafb;
+        color: #1f2937;
+        line-height: 1.5;
+      }
+
+      header {
+        background-color: #ffffff;
+        padding: 2rem 1rem;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      p.lead {
+        font-size: 1.25rem;
+        color: #6b7280;
+        margin: 1rem 0 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+      }
+
+      .code-block {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        overflow-x: auto;
+      }
+
+      code {
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        font-size: 0.9rem;
+      }
+
+      .usage-section {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        color: #6b7280;
+        border-top: 1px solid #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Pricing Web Component</h1>
+      <p class="lead">
+        A fully customizable, embeddable pricing component for your website
+      </p>
+    </header>
+
+    <div class="container">
+      <div class="demo">
+        <pricing-component currency="USD" highlight="pro"></pricing-component>
+      </div>
+
+      <div class="usage-section">
+        <h2>How to use this component</h2>
+        <p>
+          Simply include the script tag below in your HTML and use the custom
+          element:
+        </p>
+
+        <div class="code-block">
+          <code
+            >&lt;script type="module"
+            src="YOUR_NETLIFY_URL/pricing-component.js"&gt;&lt;/script&gt;</code
+          >
+        </div>
+
+        <div class="code-block">
+          <code
+            >&lt;pricing-component currency="USD"
+            highlight="pro"&gt;&lt;/pricing-component&gt;</code
+          >
+        </div>
+
+        <h2>Additional Options</h2>
+        <p>The component supports monthly/yearly billing toggle:</p>
+
+        <div class="code-block">
+          <code
+            >&lt;pricing-component currency="USD" highlight="pro"
+            billing-period="yearly" yearly-discount="20"
+            &gt;&lt;/pricing-component&gt;</code
+          >
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Created with Web Components. Free to use and customize.</p>
+    </footer>
+
+    <script type="module" src="/pricing-component.js"></script>
+  </body>
+</html>
